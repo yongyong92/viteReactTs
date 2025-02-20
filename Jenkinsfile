@@ -35,7 +35,7 @@ pipeline {
 
                     // 서버에 파일 배포
                     sh //"rsync -avz -e 'ssh -o StrictHostKeyChecking=no -p 22' dist/ devtest@192.168.0.29:/var/www/vietReacTs/"
-                    "rsync -avz -e 'ssh -i /var/lib/jenkins/.ssh/yytest -o StrictHostKeyChecking=no -p 22' dist/ devtest@192.168.0.29:/var/www/vietReacTs/""
+                    "rsync -avz -e 'ssh -i /var/lib/jenkins/.ssh/yytest -o StrictHostKeyChecking=no -p 22' dist/ devtest@192.168.0.29:/var/www/vietReacTs/"
 
 
                     // 서버에서 애플리케이션 재시작
