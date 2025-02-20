@@ -24,28 +24,11 @@ pipeline {
                 sh 'npm run build'
             }
         }
+    }
 
-        stage('Deploy') {
-            steps {
-                //sh 'fuser -k -n tcp 9400
+    post {
+        success {
                 sh 'npm run dev &'
-            /*
-                script {
-                    def remoteUser = "devtest"
-                    def remoteHost = "192.168.0.29"
-                    def remotePath = "/var/www/vietReacTs/"
-                    def sshPort = "22"
-
-                    // 서버에 파일 배포
-                    //sh "rsync -avz -e 'ssh -o StrictHostKeyChecking=no -p 22' dist/ devtest@192.168.0.29:/var/www/vietReacTs/"
-                    sh "rsync -avz -e 'ssh -i /var/lib/jenkins/.ssh/yytest -o StrictHostKeyChecking=no -p 22' dist/ devtest@192.168.0.29:/var/www/vietReacTs/"
-
-
-                    // 서버에서 애플리케이션 재시작
-                    sh "ssh -p 22 devtest@192.168.0.29 'pm2 restart vietReacTs'"
-                }
-            */
-            }
         }
     }
 }
