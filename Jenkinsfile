@@ -31,7 +31,7 @@ pipeline {
 
                 sh 'npm run dev'
 
-                currentBuild.result = 'FAILURE'
+                sh 'exit 1'
             /*
                 script {
                     def remoteUser = "devtest"
