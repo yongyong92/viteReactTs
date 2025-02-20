@@ -34,14 +34,10 @@ pipeline {
                     def sshPort = "22"
 
                     // 서버에 파일 배포
-                    sh """
-                    rsync -avz -e 'ssh -p 9400' dist/ devtest@192.168.0.29:vietReacTs
-                    """
+                    sh "rsync -avz -e 'ssh -p 9400' dist/ devtest@192.168.0.29:/var/www/vietReacTs/"
 
                     // 서버에서 애플리케이션 재시작
-                    sh """
-                    ssh -p 9400 devtest@$192.168.0.29 'pm2 restart vietReacTs'
-                    """
+                    sh "ssh -p 9400 devtest@192.168.0.29 'pm2 restart vietReacTs'"
                 }
             }
         }
