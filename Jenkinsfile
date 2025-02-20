@@ -50,7 +50,7 @@ pipeline {
 
         stage('Start Server') {
             steps {
-                sh 'npm run dev &'
+                sh 'sudo npm run dev &'
             }
         }
     }
