@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/yongyong92/viteReactTs.git'  // 깃 저장소 URL
+                git branch: 'master', credentialsId: 'yytest', url://github.com/yongyong92/viteReactTs.git'  // 깃 저장소 URL
             }
         }
 
@@ -27,8 +27,22 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                // 배포 명령어
-                sh 'rsync -avz dist/ devtest@192.168.0.29:22/path/to/deploy'
+                script {
+                    def remoteUser = "devtest"
+                    def remoteHost = "192.168.0.29"
+                    def remotePath = "/var/www/vietReacTs/"
+                    def sshPort = "22"
+
+                    // 서버에 파일 배포
+                    sh """
+                    rsync -avz -e 'ssh -p 9400' dist/ devtest@192.168.0.29:vietReacTs
+                    """
+
+                    // 서버에서 애플리케이션 재시작
+                    sh """
+                    ssh -p 9400 devtest@$192.168.0.29 'pm2 restart vietReacTs'
+                    """
+                }
             }
         }
     }
