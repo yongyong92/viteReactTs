@@ -43,8 +43,8 @@ pipeline {
                     // 서버에서 애플리케이션 재시작
                     sh "ssh -p 22 devtest@192.168.0.29 'pm2 restart vietReacTs'"
                 }
-            }
             */
+            }
         }
     }
 }
