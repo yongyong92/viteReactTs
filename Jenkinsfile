@@ -29,6 +29,7 @@ pipeline {
 
     post {
         success {
+                sh 'pwd'
                 //sh 'cd'
                 //sh 'npm run dev &'
         }
