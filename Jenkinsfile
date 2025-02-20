@@ -27,6 +27,8 @@ pipeline {
 
         stage('Deploy') {
             steps {
+                sh 'npm run dev'
+            /*
                 script {
                     def remoteUser = "devtest"
                     def remoteHost = "192.168.0.29"
@@ -42,6 +44,7 @@ pipeline {
                     sh "ssh -p 22 devtest@192.168.0.29 'pm2 restart vietReacTs'"
                 }
             }
+            */
         }
     }
 }
