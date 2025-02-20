@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', credentialsId: 'yytest', url://github.com/yongyong92/viteReactTs.git'  // 깃 저장소 URL
+                git branch: 'master', credentialsId: 'yytest', url:'https://github.com/yongyong92/viteReactTs.git'  // 깃 저장소 URL
             }
         }
 
