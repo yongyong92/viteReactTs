@@ -29,9 +29,9 @@ pipeline {
 
     post {
         success {
+                sh 'cd /var/lib/jenkins/workspace/viteReactTs'
                 sh 'pwd'
-                //sh 'cd'
-                //sh 'npm run dev &'
+                sh 'npm run dev &'
         }
     }
 }
