@@ -27,7 +27,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'sudo fuser -k -n tcp 9400'
+                sh 'fuser -k -n tcp 9400'
 
                 sh 'npm run dev'
 
