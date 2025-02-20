@@ -27,10 +27,8 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'fuser -k -n tcp 9400'
-
-                sh 'npm run dev'
-
+                sh 'fuser -k -n tcp 9400
+                    npm run dev'
                 sh 'exit 1'
             /*
                 script {
