@@ -1,11 +1,11 @@
 pipeline {
     agent any
-
+/*
     environment {
         NODEJS_HOME = tool name: 'NodeJS 20.x', type: 'NodeJS'  // Jenkins에서 설정한 Node.js 버전
         PATH = "${NODEJS_HOME}/bin:${env.PATH}"
     }
-
+*/
     stages {
         stage('Checkout') {
             steps {
