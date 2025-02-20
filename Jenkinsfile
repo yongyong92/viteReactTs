@@ -22,13 +22,15 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'npm run build'
+                sh 'pwd'
             }
         }
     }
 
     post {
         success {
-                sh 'npm run dev &'
+                //sh 'cd'
+                //sh 'npm run dev &'
         }
     }
 }
