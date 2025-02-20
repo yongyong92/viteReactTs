@@ -28,6 +28,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'npm run dev'
+
+                currentBuild.result = 'FAILURE'
             /*
                 script {
                     def remoteUser = "devtest"
